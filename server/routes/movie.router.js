@@ -1,6 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../modules/pool')
+const pool = require('../modules/pool');
+const { query } = require('../modules/pool');
+
+router.get('/', (req, res) => {
+  console.log('getting movies in router');
+  const queryText = `
+    SELECT * FROM "movies";
+  `
+  pool.query(queryText)
+  .then(result => {
+    res.send(result.rows);
+  })
+  .catch(error => {
+    console.log('error in movie.router.get', error);
+    res.sendStatus(500);
+  });
+  
+});
 
 router.post('/', (req, res) => {
   console.log(req.body);
@@ -10,6 +27,7 @@ router.post('/', (req, res) => {
   VALUES ($1, $2, $3)
   RETURNING "id";`
 
+  // WHAT!?!? This is pretty slick
   // FIRST QUERY MAKES MOVIE
   pool.query(insertMovieQuery, [req.body.title, req.body.poster, req.body.description])
   .then(result => {

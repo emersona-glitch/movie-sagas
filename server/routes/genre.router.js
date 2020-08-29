@@ -8,3 +8,6 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
+
+// req.params at the square bracket put 

@@ -7,7 +7,7 @@ class AddMovie extends Component {
     render () {
         return (
             
-            <p>hi</p>
+            <p>add your movie</p>
             // Nice looking form with a cancel
             // button that routes you back to home
             // a dropdown menu (which could be dynamically)

@@ -31,6 +31,8 @@ Genres can be applied to many different movies. Movies can have multiple genres.
 
 
 
+
+
 ## Feature List
 > NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you.
 
@@ -67,7 +69,6 @@ The Add Movie page should have the buttons:
 
 > Hint: Look at the /api/movie POST route -- it's been made already
 > Hint: You'll want to use the genres that are in the db for your dropdown
-
 > Base functionality does not require being able to select more than one genre for a new movie
 
 
@@ -82,15 +83,12 @@ As one of your last projects, it's possible you will be sharing this with employ
 - [ ] Comment your code.
 - [ ] Update this README to include a description of the project in your own words.
 
+
+
+
+
+
 ## Stretch Goals
-
-
-
-
-
-
-
-
 
 ### Edit Page (Stretch)
 Add to the detail page an edit button that brings the user to the edit page.

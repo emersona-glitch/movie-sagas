@@ -10,12 +10,12 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 
 I NEED TO ASK ABOUT:
-route change from within a "sub-component"
+
 
 
 
 TODO:
-sub-component routing / view change
+
 
 fetch saga for database
 map database to reducer
