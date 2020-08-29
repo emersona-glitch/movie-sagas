@@ -29,8 +29,9 @@ We've added some movie posters in the `public/images` folder, and the database i
 ### Relationships
 Genres can be applied to many different movies. Movies can have multiple genres. This is Many-to-Many! Junction Table time!
 
-## Feature List
 
+
+## Feature List
 > NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you.
 
 ### Home / List Page
@@ -56,7 +57,7 @@ This should show:
 
 - an input field (for the movie title)
 - an input field (for the movie poster image URL))
-- a textarea (for the movie description)
+- a text area (for the movie description)
 - a dropdown (for the genres)
 
 The Add Movie page should have the buttons:
@@ -82,6 +83,13 @@ As one of your last projects, it's possible you will be sharing this with employ
 - [ ] Update this README to include a description of the project in your own words.
 
 ## Stretch Goals
+
+
+
+
+
+
+
 
 
 ### Edit Page (Stretch)

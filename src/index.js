@@ -12,13 +12,14 @@ import createSagaMiddleware from 'redux-saga';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    // "partially"
 }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
 // Used to store movies returned from the server
+// this should already work ?
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
@@ -29,6 +30,7 @@ const movies = (state = [], action) => {
 }
 
 // Used to store the movie genres
+// this should already work ?
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
