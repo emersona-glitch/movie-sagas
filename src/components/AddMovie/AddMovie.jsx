@@ -6,7 +6,13 @@ class AddMovie extends Component {
 
     render () {
         return (
-            <p>HI</p>
+            
+            <p>hi</p>
+            // Nice looking form with a cancel
+            // button that routes you back to home
+            // a dropdown menu (which could be dynamically)
+            // generated so we can add more categories
+            
         )
     }
 

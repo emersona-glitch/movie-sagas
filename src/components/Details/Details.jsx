@@ -6,7 +6,11 @@ class Details extends Component {
 
     render () {
         return (
-            <p>HI</p>
+
+            <p>hi</p>
+            // Full screen view, displaying bigger movie poster,
+            // larger title, and description.
+
         )
     }
 

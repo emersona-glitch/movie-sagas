@@ -25,7 +25,6 @@ class App extends Component {
           {/* are we?? I don't even think we are} */}
 
         </Router>
-        <p>Empty Page</p>
       </div>
     );
   }

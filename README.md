@@ -9,6 +9,20 @@ Your project description goes here. What problem did you solve? How did you solv
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
 
 
+I NEED TO ASK ABOUT:
+route change from within a "sub-component"
+
+
+
+TODO:
+sub-component routing / view change
+
+fetch saga for database
+map database to reducer
+    serverside stuff
+
+
+
 
 HOME PAGE --> DETAILS PAGE
 |
