@@ -1,29 +1,52 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MovieItem from '../MovieItem/MovieItem'
 
 
 class MovieList extends Component {
 
     componentDidMount = () => {
         // do your saga fetch dispatch thing here, 
+        this.props.dispatch({ type: 'FETCH_MOVIES' })
     }
 
-    handleClick = () => {
-        // when clicking on a movie poster or details,
-        // pull up a details page where we're retrieving the
-        // info from the movie of the dingus we clicked on
+    directToDetails = (id) => {
+        // console.log('going to details', id);
+        this.props.history.push('/Details')
+        this.props.dispatch({ type: 'FETCH_DETAILS', payload: id})
+
     }
 
-    render () {
+    render() {
         return (
-            <p>hi</p>
-            // this is going to be a grid list of all of
-            // the <MovieItem/> components that are generated
-            // from the contents of our database,
-            // which will be put into an array reducer
-            ////////////////////
-            // bro you gotta push your fuckin history
-            // <button onClick={() => props.history.push('/pizzas')}>Order a pizza!</button>
+
+            <>
+                <p>itsa movie list</p>
+
+                
+                <ul>
+                    {this.props.reduxState.movies.map((movie, i) => {
+
+                        return (
+                            // <li>{movie.title}</li>
+                            <>
+                                {() => { console.log(movie.url) }}
+                                <MovieItem
+                                    key={movie.id}
+                                    directToDetails={this.directToDetails}
+                                    id={movie.id}
+                                    description={movie.description}
+                                    title={movie.title}
+                                    poster={movie.poster} />
+                                <br />
+                            </>
+                        )
+
+                    })}
+
+                </ul>
+
+            </>
         )
     }
 

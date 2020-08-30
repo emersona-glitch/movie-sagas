@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
 class Details extends Component {
 
-    render () {
-        return (
+    componentDidMount = () => {
 
-            <p>hi</p>
-            // Full screen view, displaying bigger movie poster,
-            // larger title, and description.
+    }
+
+    render() {
+        let item = this.props.reduxState.details[0];
+        return (
+            <>
+                {item && <h2>{item.title}</h2>}
+                <h4>Genre:</h4>
+                <ul>
+                    {this.props.reduxState.details.map((movie, i) => {
+                        return (
+                            <p key={i}>{movie.name}</p>
+                        )
+                    })}
+                </ul>
+                {item && <p>{item.description}</p>}
+                {item && <img src={item.poster} alt={item.title} />} <br/>
+                <button onClick={()=>this.props.history.push('/')} >Back</button>
+            </>
 
         )
     }
@@ -23,4 +39,4 @@ const putReduxDataProps = (reduxState) => {
     }
 }
 
-export default connect(putReduxDataProps)(Details);
+export default withRouter(connect(putReduxDataProps)(Details));

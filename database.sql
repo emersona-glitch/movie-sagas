@@ -56,3 +56,24 @@ VALUES
 ('Science Fiction'),
 ('Space-Opera'),
 ('Superhero');
+
+
+
+-- NB! Thank you hanz for the following code -- using your pre-existing classifications
+-- saved me a lot of tedium! <3
+-- Kris and Dane: I'm sorry if this isn't chill,
+-- I wanted to expedite some coding chores
+-- in the name of finishing base goals on time.
+CREATE TABLE "movies_genres" (
+	"id" SERIAL PRIMARY KEY,
+	"movie_id" INT REFERENCES "movies",
+	"genre_id" INT REFERENCES "genres"
+);
+
+-- junction table values
+INSERT INTO "movies_genres" ("movie_id", "genre_id")
+VALUES ('1', '1'), ('1', '2'), ('2', '6'), ('2', '11'), ('3', '1'), 
+('4', '6'), ('5', '10'), ('5', '12'), ('6', '1'), ('6', '2'), ('6', '6'), 
+('6', '7'), ('7', '1'), ('7', '2'), ('8', '2'), ('8', '5'), ('8', '6'), 
+('9', '3'), ('9', '6'), ('10', '1'), ('10', '7'), ('11', '2'), ('12', '5'), 
+('13', '5'), ('13', '11'), ('14', '2'), ('14', '6');
