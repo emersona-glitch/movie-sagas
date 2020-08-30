@@ -61,7 +61,7 @@ VALUES
 
 -- NB! Thank you hanz for the following code -- using your pre-existing classifications
 -- saved me a lot of tedium! <3
--- Kris and Dane, I'm sorry if this isn't chill,
+-- Kris and Dane: I'm sorry if this isn't chill,
 -- I wanted to expedite some coding chores
 -- in the name of finishing base goals on time.
 CREATE TABLE "movies_genres" (

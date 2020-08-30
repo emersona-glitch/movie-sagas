@@ -87,10 +87,16 @@ function* rootSaga() {
     yield takeEvery('FETCH_DETAILS', fetchDetails);
     yield takeEvery('FETCH_GENRES', fetchGenres);
     yield takeEvery('ADD_MOVIE', addMovie)
-    // "partially"
+    
 }
 
-function* addMovie() {}
+function* addMovie(action) {
+    try {
+        yield axios.post('api/movie', action.payload);
+    } catch (error) {
+        console.log('error adding movie', error);
+    }
+}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -100,6 +106,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        details
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 
 class AddMovie extends Component {
@@ -8,7 +9,7 @@ class AddMovie extends Component {
         title: '',
         poster: '',
         description: '',
-        genre: -1
+        genre: '',
     }
 
     handleCancel = () => {
@@ -16,8 +17,15 @@ class AddMovie extends Component {
     }
 
     handleSubmit = () => {
-        this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state})
         console.log('submitted', this.state);
+        if (this.state.title === '' || this.state.poster === '' ||
+            this.state.description === '' || this.state.genre === '') {
+                alert('please complete all fields')
+                return null 
+            }
+        this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state})
+        this.props.dispatch({ type: 'FETCH_MOVIES' })
+        this.props.history.push('/')
 
     }
 
@@ -63,10 +71,7 @@ class AddMovie extends Component {
                 </select> <br /><br />
                 <button onClick={this.handleSubmit}>Submit</button>  <br />
                 <button onClick={this.handleCancel}>Cancel</button>
-                {/* // Nice looking form with a cancel
-            // button that routes you back to home
-            // a dropdown menu (which could be dynamically)
-            // generated so we can add more categories
+                
              */}
             </>
         )
@@ -81,4 +86,4 @@ const putReduxDataProps = (reduxState) => {
     }
 }
 
-export default connect(putReduxDataProps)(AddMovie);
+export default withRouter(connect(putReduxDataProps)(AddMovie));

@@ -23,19 +23,6 @@ class MovieItem extends Component {
             </>
 
 
-
-            // We want a card, with a poster image of a certain
-            // size, and a details button which both onClick
-            // route you to the details page.....how do we
-            // do that from within this component??
-            // and...whatever it's all about mapping that id
-            // I guess.
-
-
-
-            // but then what when we're generating each component
-            //  am I passing props in or wtf am I doing...idk
-
         )
     }
 

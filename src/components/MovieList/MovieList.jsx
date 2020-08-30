@@ -23,8 +23,7 @@ class MovieList extends Component {
             <>
                 <p>itsa movie list</p>
 
-                {/* // ok first things first we're gonna do the whole
-            // thing here we go */}
+                
                 <ul>
                     {this.props.reduxState.movies.map((movie, i) => {
 
@@ -47,14 +46,6 @@ class MovieList extends Component {
 
                 </ul>
 
-
-                {/* // this is going to be a grid list of all of
-            // the <MovieItem/> components that are generated
-            // from the contents of our database,
-            // which will be put into an array reducer
-            ////////////////////
-            // bro you gotta push your fuckin history
-            // <button onClick={() => props.history.push('/pizzas')}>Order a pizza!</button> */}
             </>
         )
     }

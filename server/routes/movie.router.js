@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const queryText = `
-  SELECT "movies".title, "movies".rating, "movies".poster, "movies".description, 
+  SELECT "movies".title, "movies".poster, "movies".description, 
   "genres".name, "movies".id FROM "movies_genres"
   JOIN "movies" ON "movies_genres".movie_id = "movies".id
   JOIN "genres" ON "movies_genres".genre_id = "genres".id
@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
 
     // Depending on how you make your junction table, this insert COULD change.
     const insertMovieGenreQuery = `
-      INSERT INTO "movies_genres" ("movies_id", "genres_id")
+      INSERT INTO "movies_genres" ("movie_id", "genre_id")
       VALUES  ($1, $2);
       `
       // SECOND QUERY MAKES GENRE FOR THAT NEW MOVIE
