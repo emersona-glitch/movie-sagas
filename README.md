@@ -9,18 +9,17 @@ Your project description goes here. What problem did you solve? How did you solv
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
 
 
-I NEED TO ASK ABOUT:
+DETAILS PAGE
+pass specific id into details
+get that index from movies reducer
+do a call to the DB for genres
 
+ADD MOVIE PAGE
+[x] interface design (2 inputs, text area, dropdown, submit, cancel)
+[] talking to DB to get all genres and put in dropdown
+post to DB (post already exists thank god)
 
-
-
-TODO:
-
-
-fetch saga for database
-map database to reducer
-    serverside stuff
-
+UPDATE YOUR README
 
 
 

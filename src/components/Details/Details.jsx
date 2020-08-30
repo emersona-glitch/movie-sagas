@@ -6,6 +6,8 @@ class Details extends Component {
 
     componentDidMount = () => {
 
+        // this.props.dispatch({type: '', payload: )
+        // honestly it's just faster to talk to the database
         // bro but do we even need to call axios for that?
         // or we can hold off til we need to get the genres
 

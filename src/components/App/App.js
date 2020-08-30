@@ -3,6 +3,8 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import AddMovie from '../AddMovie/AddMovie'
 import MovieList from '../MovieList/MovieList'
+import Details from '../Details/Details'
+import MovieItem from '../MovieItem/MovieItem';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -19,10 +21,11 @@ class App extends Component {
           </nav>
 
           <Route exact path="/" component={MovieList} />
-          <Route exact path="/AddMovie" component={AddMovie} />
-          {/* <Route exact path="/Details/${dingus}" component={details} />  <== how does this component part work */}
-          {/* We're going to need to do some conditional rendering so I know I'km going to need to get that up */}
-          {/* are we?? I don't even think we are} */}
+          <Route path="/AddMovie" component={AddMovie} />
+          <Route path="/details" component={Details} />
+          <Route path="/MovieItem" component={MovieItem} />
+          {/* <Route exact path="/Details/${}" component={details} />  <== how does this component part work */}
+          
 
         </Router>
       </div>

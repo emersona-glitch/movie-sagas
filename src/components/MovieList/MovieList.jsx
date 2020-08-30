@@ -10,8 +10,10 @@ class MovieList extends Component {
         this.props.dispatch({ type: 'FETCH_MOVIES' })
     }
 
-    handleClick = () => {
-        console.log('hi');
+    directToDetails = () => {
+        
+        this.props.history.push('/Details')
+
         // when clicking on a movie poster or details,
         // pull up a details page where we're retrieving the
         // info from the movie of the dingus we clicked on
@@ -35,6 +37,8 @@ class MovieList extends Component {
                                 {() => { console.log(movie.url) }}
                                 <MovieItem
                                     key={movie.id}
+                                    directToDetails={this.directToDetails}
+                                    id={movie.id}
                                     description={movie.description}
                                     title={movie.title}
                                     poster={movie.poster} />

@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class MovieList extends Component {
+
+class MovieItem extends Component {
+
+// componentDidMount = () => {
+//     this.handleClick()
+// }
 
     handleClick = () => {
-        console.log('pony time', this.props.description);
+        // console.log(this.props.description);
+        this.props.directToDetails();
     }
 
     render () {
@@ -13,7 +19,7 @@ class MovieList extends Component {
             
             // <p>{}</p>
             <>
-            <img onClick={this.handleClick} src={this.props.poster} alt={this.props.url}/>
+                <img onClick={() => {this.handleClick()}} src={this.props.poster} alt={this.props.url}/>
             </>
 
 
@@ -42,4 +48,4 @@ const putReduxDataProps = (reduxState) => {
     }
 }
 
-export default connect(putReduxDataProps)(MovieList);
+export default connect(putReduxDataProps)(MovieItem);
