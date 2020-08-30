@@ -22,7 +22,7 @@ class Details extends Component {
         // for the movie that was clicked on
         // which means for the reducer.id to get linked
         // or whatever I'm trying to say.
-        
+
         // also I think you're gonna have to do some sort of 
         // double get or join thing or I'm not sure
         // when you get the specific details of the movie you're after.
@@ -30,8 +30,21 @@ class Details extends Component {
 
     }
 
-    render () {
+    render() {
+        let item  = this.props.details[0];
         return (
+            <>
+            {item && <h2>{item.title</h2>}
+            <h4>Genre:</h4>
+            <ul>
+                {this.props.details.map((movie, i) => {
+                    return (
+                        <p key={i}>{movie.name}</p>
+                    )
+                })}
+            </ul>
+            {item && <p></p>}
+            </>
 
             <p>herre are the details</p>
             // Full screen view, displaying bigger movie poster,
