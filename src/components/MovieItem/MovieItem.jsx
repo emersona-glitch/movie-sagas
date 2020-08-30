@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom'
 
 
 class MovieItem extends Component {
@@ -9,9 +9,9 @@ class MovieItem extends Component {
 //     this.handleClick()
 // }
 
-    handleClick = () => {
+    handleClick = (id) => {
         // console.log(this.props.description);
-        this.props.directToDetails();
+        this.props.directToDetails(id);
     }
 
     render () {
@@ -19,7 +19,7 @@ class MovieItem extends Component {
             
             // <p>{}</p>
             <>
-                <img onClick={() => {this.handleClick()}} src={this.props.poster} alt={this.props.url}/>
+                <img onClick={() => {this.handleClick(this.props.id)}} src={this.props.poster} alt={this.props.url}/>
             </>
 
 
@@ -48,4 +48,8 @@ const putReduxDataProps = (reduxState) => {
     }
 }
 
-export default connect(putReduxDataProps)(MovieItem);
+export default withRouter(connect(putReduxDataProps)(MovieItem));
+
+// fetch details payload id
+
+// axios get details/action.payload

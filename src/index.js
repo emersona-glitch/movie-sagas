@@ -11,6 +11,7 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import axios from 'axios'
 import { takeEvery, put } from 'redux-saga/effects';
+// import AddMovie from './components/AddMovie/AddMovie';
 
 
 function* fetchMovies() {
@@ -23,16 +24,30 @@ function* fetchMovies() {
         console.log( 'error in fetching Movies', error );
     }
 
-    // try{
-    //     let response = yield axios.get('/api/favorite');
-    //     console.log(response.data);
-    //     yield put ({type: 'SET_FAVORITES', payload: response.data});
-    // } catch (error) {
-    //     console.log('error in getting favorites', error)
-    // }
+}
+
+function* fetchGenres () {
+
+    try {
+        let response = yield axios.get('api/genre')
+        console.log(response.data);
+        yield put ( { type: 'SET_GENRES', payload: response.data } );
+    } catch (error) {
+        console.log( 'error in fetch Genres', error );
+    }
 
 }
 
+function* fetchDetails(action) {
+
+    try {
+        let response = yield axios.get(`api/movie/${action.payload}`)
+        console.log(response.data);
+        yield put({ type: 'SET_DETAILS', payload: response.data })
+    } catch (error) {
+        console.log('error in fetch details: ', error);
+    }
+}
 
 
 // Used to store movies returned from the server
@@ -57,11 +72,25 @@ const genres = (state = [], action) => {
     }
 }
 
+const details = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
+    yield takeEvery('FETCH_DETAILS', fetchDetails);
+    yield takeEvery('FETCH_GENRES', fetchGenres);
+    yield takeEvery('ADD_MOVIE', addMovie)
     // "partially"
 }
+
+function* addMovie() {}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

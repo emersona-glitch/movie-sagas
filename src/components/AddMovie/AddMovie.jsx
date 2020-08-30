@@ -16,8 +16,9 @@ class AddMovie extends Component {
     }
 
     handleSubmit = () => {
-        // this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state})
+        this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state})
         console.log('submitted', this.state);
+
     }
 
     handleChange = (event, type) => {
@@ -33,7 +34,7 @@ class AddMovie extends Component {
                 this.setState({ ...this.state, description: event.target.value })
                 break;
             case 'genre':
-                this.setState({ ...this.state, genre: event.target.value })
+                this.setState({ ...this.state, genre: Number(event.target.value) })
                 break;
             default:
                 console.log('something is wrong in handleChange');
@@ -41,15 +42,17 @@ class AddMovie extends Component {
 
     }
 
-
+    componentDidMount = () => {
+        this.props.dispatch({ type: 'FETCH_GENRES' })
+    }
 
     render() {
         return (
             <>
-                <p>add your movie</p>  <br />
-                <input onChange={(event) => this.handleChange(event, 'title')} placeholder="title"></input>  <br />
-                <input onChange={(event) => this.handleChange(event, 'poster')} placeholder="poster url"></input>  <br />
-                <textarea onChange={(event) => this.handleChange(event, 'description')} placeholder="description"></textarea>  <br />
+                <p>add your movie</p>  <br /><br />
+                <input onChange={(event) => this.handleChange(event, 'title')} placeholder="title"></input>  <br /><br />
+                <input onChange={(event) => this.handleChange(event, 'poster')} placeholder="poster url"></input>  <br /><br />
+                <textarea onChange={(event) => this.handleChange(event, 'description')} placeholder="description"></textarea>  <br /><br />
                 <label for="genre">Choose a genre:</label>
                 <select onChange={(event) => this.handleChange(event, 'genre')} name="genre" id="genre">
                     {this.props.reduxState.genres.map((genre) => {
@@ -57,7 +60,7 @@ class AddMovie extends Component {
                             <option value={genre.id}>{genre.name}</option>
                         )
                     })}
-                </select>
+                </select> <br /><br />
                 <button onClick={this.handleSubmit}>Submit</button>  <br />
                 <button onClick={this.handleCancel}>Cancel</button>
                 {/* // Nice looking form with a cancel

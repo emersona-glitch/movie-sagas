@@ -23,6 +23,7 @@ class App extends Component {
           <Route exact path="/" component={MovieList} />
           <Route path="/AddMovie" component={AddMovie} />
           <Route path="/details" component={Details} />
+          
           <Route path="/MovieItem" component={MovieItem} />
           {/* <Route exact path="/Details/${}" component={details} />  <== how does this component part work */}
           
