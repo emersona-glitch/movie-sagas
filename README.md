@@ -1,4 +1,4 @@
-# SQL TO-DO LIST
+# REDUX-SAGAS MOVIE LIST
 
 ## Description
 
